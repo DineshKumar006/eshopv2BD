@@ -19,7 +19,7 @@ cloudinary.config({
      
      storage:multer.diskStorage({
          destination:(req,file,cb)=>{
-                cb(null,'uploads/images')
+                cb(null,'src/uploads/images')
          },
          filename:(req,file,cb)=>{
             cb(null,uuid()+'.'+'png')

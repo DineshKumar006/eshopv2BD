@@ -31,7 +31,7 @@ const imageUpload=multer({
 
     storage:multer.diskStorage({
         destination:(req,file,cb)=>{
-            cb(null, 'avatar/images')
+            cb(null, 'src/avatar/images')
         },
         filename:(req,file,cb)=>{
             let ext=MIME_TYPE[file.mimetype]
