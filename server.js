@@ -1,6 +1,10 @@
 const express=require('express');
 const http =require('http');
 const app=express();
+
+
+// const server=http.createServer(app)
+
 const cors=require('cors')
 const path=require('path')
 const bodyParser=require('body-parser')
@@ -74,6 +78,6 @@ app.get('/',async(req,res)=>{
 })
 
 
-server.listen(PORT,()=>{
+app.listen(PORT,()=>{
     console.log('Servering runnning on Port:',PORT);  
 })
