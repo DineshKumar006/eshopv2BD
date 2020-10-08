@@ -43,10 +43,10 @@ const imageUpload=multer({
 
 Router.route('/updateProfile').patch(authMiddleware, imageUpload.single('profile_image'), async(req,res)=>{
     try {
-        // console.log(req.file)
+         console.log(req.file)
 
         const result=await cloudinary.uploader.upload(req.file.path,{width:500,height:450, quality: "auto" ,fetch_format:"auto",crop: "scale"})
-        // console.log(result.secure_url)
+        //  console.log(result.secure_url)
         req.validUser.avatarurl=result.secure_url
         req.validUser.public_id=result.public_id
        
@@ -60,7 +60,8 @@ Router.route('/updateProfile').patch(authMiddleware, imageUpload.single('profile
         if(req.file){
             fs.unlinkSync(req.file.path)
         }
-        res.status(500).send({status:"Failed"})
+        console.log(error)
+        res.status(403).send({status:"Failed",error})
     }
 })
 
